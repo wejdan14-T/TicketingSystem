@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<!-- ✔ CSP المتوافقة مع Firebase -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  connect-src 'self'
+    https://firestore.googleapis.com
+    https://www.googleapis.com
+    https://identitytoolkit.googleapis.com
+    https://securetoken.googleapis.com;
+  script-src 'self' 'unsafe-inline'
+    https://www.gstatic.com
+    https://apis.google.com
+    https://www.googleapis.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data:;
+  frame-src 'self'
+    https://apis.google.com
+    https://ticketingsystem-fa477.firebaseapp.com;
+">
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ticketing System – User Dashboard</title>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+
+<!-- Firebase Config -->
+<script src="js/firebase.js"></script>
+
+<!-- CSS العام -->
+<link rel="stylesheet" href="css/base.css">
+<!-- CSS الخاص بالداشبورد -->
+<link rel="stylesheet" href="css/user_dashboard.css">
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <img src="التنمية%20المتكاملة.jpg" alt="Logo">
+    <div>
+      <div class="title">Ticketing System</div>
+      <div id="hdrEmail" class="hdr-email"></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <span id="hello" class="hello-text"></span>
+    <button class="btn" id="logoutBtn">Sign Out</button>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="container">
+
+    <!-- KPIs -->
+    <section class="kpis">
+      <div class="kpi">
+        <span>Open</span>
+        <b id="k_open">0</b>
+      </div>
+      <div class="kpi">
+        <span>In Progress</span>
+        <b id="k_prog">0</b>
+      </div>
+      <div class="kpi">
+        <span>Resolved</span>
+        <b id="k_res">0</b>
+      </div>
+      <div class="kpi">
+        <span>All</span>
+        <b id="k_all">0</b>
+      </div>
+    </section>
+
+    <!-- Action Cards -->
+    <section class="grid">
+      <article class="card nav-card" data-href="new_request.html">
+        <h3>Request</h3>
+        <p>Ink, printer, network, or device request.</p>
+      </article>
+
+      <article class="card nav-card" data-href="new_complaint.html">
+        <h3>Complaint</h3>
+        <p>Send a formal complaint to support.</p>
+      </article>
+
+      <article class="card nav-card" data-href="new_inquiry.html">
+        <h3>Inquiry</h3>
+        <p>Ask about policies or procedures.</p>
+      </article>
+
+      <article class="card nav-card" data-href="my_tickets.html">
+        <h3>My Tickets</h3>
+        <p>Track your past and current tickets.</p>
+      </article>
+    </section>
+
+  </div>
+</main>
+
+<!-- JS الخاص بالداشبورد -->
+<script src="js/user_dashboard.js"></script>
+
+</body>
+</html>

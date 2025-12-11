@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<!-- ✔ CSP المتوافقة 100% مع Firebase Auth + Firestore -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  connect-src 'self'
+    https://firestore.googleapis.com
+    https://www.googleapis.com
+    https://identitytoolkit.googleapis.com
+    https://securetoken.googleapis.com;
+  script-src 'self' 'unsafe-inline'
+    https://www.gstatic.com
+    https://apis.google.com
+    https://www.googleapis.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data:;
+  frame-src 'self'
+    https://apis.google.com
+    https://ticketingsystem-fa477.firebaseapp.com;
+">
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ticketing System – New Request</title>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+
+<!-- ملف الإعدادات الخاص بالـ Firebase (مشترك بين كل الصفحات) -->
+<script src="js/firebase.js"></script>
+
+<!-- CSS العام -->
+<link rel="stylesheet" href="css/base.css">
+<!-- CSS الخاص بصفحة الطلب الجديد -->
+<link rel="stylesheet" href="css/new_request.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <img src="التنمية%20المتكاملة.jpg" alt="Logo" />
+    <div class="title">Ticketing System</div>
+  </div>
+  <div class="header-actions">
+    <button class="btn outline" id="backBtn">Back</button>
+    <button class="btn primary" id="logoutBtn">Sign Out</button>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="hero">
+  <div class="container">
+
+    <section class="card">
+
+      <div class="row row-two-cols">
+        <div>
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="">Select…</option>
+            <option>Ink Replacement</option>
+            <option>Printer Broken</option>
+            <option>Network Down</option>
+            <option>New Device</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="priority">Priority</label>
+          <select id="priority">
+            <option value="">Select…</option>
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="title">Title</label>
+      <input id="title" placeholder="Replace ink for HP-2040">
+
+      <label for="details">Details</label>
+      <textarea id="details" placeholder="Describe the issue..."></textarea>
+
+      <div id="mErr" class="msg err"></div>
+      <div id="mOk" class="msg ok">Request submitted successfully.</div>
+
+      <div class="row actions-row">
+        <button class="btn primary" id="submitBtn">Submit</button>
+        <button class="btn outline" id="clearBtn">Clear</button>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- JS الخاص بصفحة الطلب الجديد -->
+<script src="js/new_request.js"></script>
+
+</body>
+</html>

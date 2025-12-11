@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- ✔ CSP المتوافقة 100% مع Firebase -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+
+    connect-src 'self'
+      https://firestore.googleapis.com
+      https://www.googleapis.com
+      https://identitytoolkit.googleapis.com
+      https://securetoken.googleapis.com;
+
+    script-src 'self' 'unsafe-inline'
+      https://www.gstatic.com
+      https://apis.google.com
+      https://www.googleapis.com;
+
+    style-src 'self' 'unsafe-inline';
+
+    img-src 'self' data:;
+
+    frame-src 'self'
+      https://apis.google.com
+      https://ticketingsystem-fa477.firebaseapp.com;
+  ">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ticketing System – Admin Tickets</title>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+
+  <!-- تهيئة Firebase المشتركة -->
+  <script src="js/firebase.js"></script>
+
+  <!-- CSS العام -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- CSS الخاص بلوحة الأدمن -->
+  <link rel="stylesheet" href="css/admin_tickets.css">
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <img src="التنمية%20المتكاملة.jpg" alt="Logo">
+    <div class="title">Ticketing System – Admin</div>
+  </div>
+
+  <button class="btn" id="logoutBtn">Sign Out</button>
+</header>
+
+<main class="hero">
+  <div class="container">
+
+    <!-- Filters -->
+    <section class="card pad">
+      <div class="filters">
+        <select id="typeFilter">
+          <option value="">All Types</option>
+          <option>Request</option>
+          <option>Complaint</option>
+          <option>Inquiry</option>
+        </select>
+
+        <select id="statusFilter">
+          <option value="">All Statuses</option>
+          <option>Open</option>
+          <option>InProgress</option>
+          <option>Resolved</option>
+        </select>
+
+        <input id="search" placeholder="Search title or ID…">
+
+        <button class="btn" id="applyBtn">Apply</button>
+        <button class="btn outline" id="clearBtn">Clear</button>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="card table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Type</th><th>Title</th><th>By</th>
+            <th>Status</th><th>Created</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+
+      <div id="empty" class="empty-message">
+        No tickets found.
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- Modal -->
+<dialog id="dlg">
+  <div class="modal">
+    <header>
+      <strong id="m_title">Ticket</strong>
+      <button class="btn outline" id="closeDlgBtn">Close</button>
+    </header>
+
+    <div id="m_body" class="modal-body"></div>
+
+    <label for="m_status">Status</label>
+    <select id="m_status">
+      <option>Open</option>
+      <option>InProgress</option>
+      <option>Resolved</option>
+    </select>
+
+    <label for="m_notes" class="notes-label">Notes</label>
+    <textarea id="m_notes" class="notes-textarea"></textarea>
+
+    <div class="modal-footer">
+      <button class="btn" id="saveBtn">Save</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- JS الخاص بلوحة الأدمن -->
+<script src="js/admin_tickets.js"></script>
+
+</body>
+</html>

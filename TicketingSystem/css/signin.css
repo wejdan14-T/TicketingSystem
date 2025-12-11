@@ -1,0 +1,109 @@
+/* css/signin.css */
+
+.wrap {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, .15);
+  position: relative;
+}
+
+/* البادج العلوية */
+.badge {
+  position: absolute;
+  right: 16px;
+  top: -34px;
+  width: 110px;
+  height: 110px;
+  padding: 10px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(226, 232, 240, .8);
+  display: grid;
+  place-items: center;
+}
+
+.badge img {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+/* الهوية */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.logo-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  padding: 3px;
+  background: #fff;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #0b5394;
+}
+
+/* الحقول */
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+/* الزر */
+button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+  background: #1e88e5;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(30, 136, 229, .32);
+}
+
+button:hover {
+  filter: brightness(1.08);
+}

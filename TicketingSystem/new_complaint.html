@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<!-- ✅ CSP الصحيح المتوافق مع Firebase -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  connect-src 'self'
+    https://firestore.googleapis.com
+    https://www.googleapis.com
+    https://identitytoolkit.googleapis.com
+    https://securetoken.googleapis.com;
+  script-src 'self' 'unsafe-inline'
+    https://www.gstatic.com
+    https://apis.google.com
+    https://www.googleapis.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data:;
+  frame-src 'self'
+    https://apis.google.com
+    https://ticketingsystem-fa477.firebaseapp.com;
+">
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ticketing System – New Complaint</title>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+
+<!-- firebase.js (إعدادات المشروع المشتركة) -->
+<script src="js/firebase.js"></script>
+
+<!-- CSS العام -->
+<link rel="stylesheet" href="css/base.css">
+<!-- CSS الخاص بصفحة الشكوى -->
+<link rel="stylesheet" href="css/new_complaint.css">
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <img src="التنمية%20المتكاملة.jpg" alt="Logo">
+    <div class="title">Ticketing System</div>
+  </div>
+  <div class="actions">
+    <button class="btn outline" id="backBtn">Back</button>
+    <button class="btn primary" id="logoutBtn">Sign Out</button>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="container">
+
+    <section class="card">
+
+      <div class="row">
+        <div>
+          <label for="title">Subject</label>
+          <input id="title" placeholder="Complaint subject" />
+        </div>
+
+        <div>
+          <label for="priority">Priority</label>
+          <select id="priority">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="details">Details</label>
+      <textarea id="details" placeholder="Describe your complaint..."></textarea>
+
+      <div id="mErr" class="msg err"></div>
+      <div id="mOk" class="msg ok">Complaint submitted successfully.</div>
+
+      <div class="row actions-row">
+        <button class="btn primary" id="submitBtn">Submit</button>
+        <button class="btn outline" id="clearBtn">Clear</button>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- JS الخاص بصفحة الشكوى -->
+<script src="js/new_complaint.js"></script>
+
+</body>
+</html>

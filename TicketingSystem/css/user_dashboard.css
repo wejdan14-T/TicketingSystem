@@ -1,0 +1,167 @@
+/* css/user_dashboard.css */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* الهيدر */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+  border-bottom: 1px solid var(--stroke);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.title {
+  font-weight: 800;
+  color: #1565c0;
+}
+
+.hdr-email {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hello-text {
+  color: #64748b;
+}
+
+/* الأزرار */
+
+.btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  background: #1e88e5;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background: #1565c0;
+}
+
+/* الخلفية */
+
+.hero {
+  padding: 24px;
+  background:
+    radial-gradient(1200px 600px at 100% -20%, #dbeafe 0%, transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, #bfdbfe 0%, transparent 60%),
+    var(--surface);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 20px;
+}
+
+/* KPIs */
+
+.kpis {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 960px) {
+  .kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.kpi {
+  background: #ffffff;
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(2, 6, 23, .04);
+}
+
+.kpi span {
+  color: var(--muted);
+}
+
+.kpi b {
+  font-size: 22px;
+  display: block;
+  margin-top: 4px;
+}
+
+/* الشبكة الخاصة بالكروت */
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  padding: 18px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(2, 6, 23, .04);
+  transition: 0.14s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(2, 6, 23, .08);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #1565c0;
+}
+
+.card p {
+  margin: 0;
+  margin-top: 4px;
+  color: var(--muted);
+}

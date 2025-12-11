@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<!-- 🎯 CSP مثالية تدعم Firebase Auth + Firestore + Google APIs -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  connect-src 'self'
+    https://firestore.googleapis.com
+    https://www.googleapis.com
+    https://identitytoolkit.googleapis.com
+    https://securetoken.googleapis.com;
+  script-src 'self' 'unsafe-inline'
+    https://www.gstatic.com
+    https://apis.google.com
+    https://www.googleapis.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data:;
+  frame-src 'self'
+    https://apis.google.com
+    https://ticketingsystem-fa477.firebaseapp.com;
+">
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ticketing System – My Tickets</title>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+
+<!-- Firebase Config المشتركة -->
+<script src="js/firebase.js"></script>
+
+<!-- CSS العام -->
+<link rel="stylesheet" href="css/base.css">
+<!-- CSS الخاص بصفحة My Tickets -->
+<link rel="stylesheet" href="css/my_tickets.css">
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <img src="التنمية%20المتكاملة.jpg" alt="Logo">
+    <div>
+      <div class="title">Ticketing System</div>
+      <div id="hdrEmail" class="hdr-email"></div>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <button class="btn outline" id="backBtn">Back</button>
+    <button class="btn primary" id="logoutBtn">Sign Out</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- FILTERS -->
+  <section class="card">
+    <div class="filters">
+      <select id="statusFilter">
+        <option value="">All Statuses</option>
+        <option value="Open">Open</option>
+        <option value="InProgress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+      </select>
+
+      <input id="search" placeholder="Search by Title or ID">
+      <button class="btn primary" id="applyBtn">Apply</button>
+      <button class="btn outline" id="clearBtn">Clear</button>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="card table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Type</th><th>Title</th><th>Status</th><th>Created</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div id="empty" class="empty">No tickets found.</div>
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<dialog id="viewDialog">
+  <div class="modal">
+    <header>
+      <strong id="m_title">Ticket</strong>
+      <button class="btn outline" id="closeViewBtn">Close</button>
+    </header>
+    <div id="m_body" class="modal-body"></div>
+    <p id="m_meta" class="modal-meta"></p>
+  </div>
+</dialog>
+
+<!-- JS الخاص بصفحة My Tickets -->
+<script src="js/my_tickets.js"></script>
+
+</body>
+</html>

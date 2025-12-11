@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- 🔒 CSP كاملة وصحيحة 100% ومطابقة لمتطلبات Firebase -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    
+    connect-src 'self'
+      https://www.googleapis.com
+      https://identitytoolkit.googleapis.com
+      https://securetoken.googleapis.com
+      https://firestore.googleapis.com;
+    
+    script-src 'self' 'unsafe-inline'
+      https://www.gstatic.com
+      https://www.googleapis.com
+      https://apis.google.com;
+    
+    style-src 'self' 'unsafe-inline';
+    
+    img-src 'self' data:;
+    
+    frame-src 'self'
+      https://apis.google.com
+      https://ticketingsystem-fa477.firebaseapp.com;
+  ">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ticketing System – Sign In</title>
+
+  <!-- 🔥 Firebase Core SDKs (Compat Mode) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+
+  <!-- 🎨 CSS العام -->
+  <link rel="stylesheet" href="css/base.css">
+  
+  <!-- 🎨 CSS الخاص بالشاشة -->
+  <link rel="stylesheet" href="css/signin.css">
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="card">
+
+      <div class="badge">
+        <img src="التنمية%20المتكاملة.jpg" alt="Logo">
+      </div>
+
+      <div class="brand">
+        <div class="logo-wrap">
+          <img src="التنمية%20المتكاملة.jpg" class="logo" alt="Logo">
+        </div>
+        <h1>Ticketing System</h1>
+      </div>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="name@company.com">
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="••••••••">
+
+      <button id="loginBtn">Sign In</button>
+
+      <div id="error" class="error">Invalid email or password.</div>
+
+    </div>
+  </div>
+
+  <!-- 📌 Firebase initialization (مشترك لكل الصفحات) -->
+  <script src="js/firebase.js"></script>
+
+  <!-- 🔐 JavaScript الخاص بتسجيل الدخول -->
+  <script src="js/auth_signin.js"></script>
+
+</body>
+</html>

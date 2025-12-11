@@ -1,0 +1,162 @@
+/* css/new_request.css */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* الهيدر */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+  border-bottom: 1px solid var(--stroke);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.title {
+  font-weight: 800;
+  color: #1565c0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* الأزرار */
+
+.btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+}
+
+.btn.outline {
+  background: #ffffff;
+  border: 1px solid var(--stroke);
+  color: #1565c0;
+}
+
+.btn.primary {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.btn.primary:hover {
+  background: #1565c0;
+}
+
+/* الخلفية والمحتوى */
+
+.hero {
+  padding: 24px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* الكرت */
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, .08);
+}
+
+/* الحقول */
+
+label {
+  font-weight: 600;
+  margin: 10px 0 6px;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--ring);
+  outline: none;
+}
+
+/* صفين في نفس السطر */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.row-two-cols > * {
+  flex: 1 1 200px;
+}
+
+/* صف الأزرار */
+
+.actions-row {
+  margin-top: 12px;
+}
+
+/* الرسائل */
+
+.msg {
+  display: none;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.ok {
+  color: #065f46;
+}
+
+.err {
+  color: #b91c1c;
+}
